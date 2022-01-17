@@ -1,0 +1,27 @@
+package com.example.fullstackangularyoutube.Service;
+
+import com.example.fullstackangularyoutube.model.Student;
+import com.example.fullstackangularyoutube.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.persistence.Entity;
+import java.util.List;
+
+@Service
+public class StudentServiceImpl implements StudentService{
+
+    @Autowired
+    private StudentRepository studentRepository;
+
+
+    @Override
+    public Student saveStudent(Student student) {
+        return studentRepository.save(student);
+    }
+
+    @Override
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
+}
